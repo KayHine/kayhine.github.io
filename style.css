@@ -1,0 +1,63 @@
+h2{
+  text-align: center;
+  font-size: 50px;	
+}
+
+
+.carousel-controls{
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+}
+
+.carousel-control.left, .carousel-control.right {
+	background: none;
+	color: black;
+}
+
+html,body{
+	height:100%;
+}
+
+.carousel,.item,.active{
+	height:100%;
+}
+
+.carousel-inner{
+	height:100%;
+}
+
+p{
+	font-size: 10px;
+	padding-right: 10px;
+}
+
+.carousel-caption{
+	position: absolute;
+	top: 50px;
+	color: black
+}
+
+.navbar-default{
+	background-color: #5a5c51;
+	border-color: #5a5c51;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+    color: #F0FFFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #F0FFFF;
+}
+
+/* title */
+.navbar-default .navbar-brand {
+    color: #F0FFFF;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #F0FFFF;
+}
