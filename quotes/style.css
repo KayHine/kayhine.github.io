@@ -1,14 +1,99 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
 
-body{
-	background-color: #000;
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
 }
 
-#quote-box{
-	border-radius: 3px;
-	position: relative;
-	width: 450px;
-	margin: 10%, auto, auto, auto;
-	background-color: #fff;
-	
+div {
+  position:relative;
+  z-index: 2;
 }
+
+body{
+  background-color: #333;
+  color: #333;
+  font: 'Josefin Slab', sans-serif;
+  font-weight: 400;
+}
+
+.footer{
+  color: #fff;
+  display: block;
+  margin: 15px auto 30px auto;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.quote-box{
+  background-color:#fff;
+  width: 450px;
+  position: relative;
+  border-radius: 3px;
+  margin: 8% auto auto auto;
+  padding: 40px, 50px;
+  display: table;
+}
+
+.quote-box .quote-text{
+  text-align: center;
+  clear: both;
+  width: 450px;
+  height: auto;
+  margin: 25px 25px 25px 25px;
+  padding: 15px 20px 0px;
+  font-size: 1.5em;
+}
+
+.quote-box .quote-text i{
+  font-size: 30px;
+  display: block;
+  text-align: left;
+}
+
+.quote-box .quote-author{
+  text-align: right;
+  margin-top: 0.5em;
+  margin-right: 2.0em;
+  font-size: 1.0em;
+}
+
+.quote-box .buttons{
+  width: 450px;
+  margin: auto;
+  display: block;
+}
+
+.quote-box .buttons .button{
+  height: 38px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-size: 0.85em;
+  margin: 15px;
+}
+
+.quote-box .buttons #tweet-quote{
+  padding: 15px;
+  font-size: 1.0em;
+}
+
+.quote-box .buttons #tweet-quote:hover{
+  opacity: 0.9;
+}
+
+.quote-box .buttons #new-quote{
+  float: right;
+  cursor: pointer;
+  padding-left: 1.0em;
+  padding-right: 1.0em;
+}
+
+.quote-box .buttons #new-quote:hover{
+  opacity: 0.9;
+}
+
