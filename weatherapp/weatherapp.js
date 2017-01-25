@@ -12,6 +12,6 @@ function showPosition(pos) {
   currLoc.innerHTML = pos.coords;
 }
 
-$(document).onload(function() {
+$(document).ready(function() {
   $("#getloc").on("click", getLocation);
 });
