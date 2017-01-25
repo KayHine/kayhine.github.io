@@ -7,7 +7,7 @@ function getLocation() {
 }
 
 function showPosition(pos) {
-    document.getElementById("currLoc").innerHTML = pos.coords;
+    document.getElementById("currLoc").innerHTML = pos.coords.latitude + "," + pos.coords.longitude;
 }
 
 $(document).ready(function() {
