@@ -1,15 +1,13 @@
-var currLoc = document.getElementById("currLoc");
-
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    currLoc.innerHTML = "Geolocation disabled";
+    document.getElementById("currLoc").innerHTML = "Geolocation disabled";
   }
 }
 
 function showPosition(pos) {
-  currLoc.innerHTML = pos.coords;
+    document.getElementById("currLoc").innerHTML = pos.coords;
 }
 
 $(document).ready(function() {
