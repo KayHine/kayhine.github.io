@@ -1,4 +1,4 @@
-var currLoc = document.getElementByID("currLoc");
+var currLoc = document.getElementById("currLoc");
 
 function getLocation() {
   if (navigator.geolocation) {
