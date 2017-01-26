@@ -23,7 +23,7 @@ function geoError(){
 
 function getWeather(){
   $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=" + APPID;
+      url: "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=" + APPID,
       success: function(weatherData){
         var post = weatherData.shift();
         $("#weather").text(post.coord);
