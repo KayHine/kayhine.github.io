@@ -1,27 +1,36 @@
-var currentQuote = "";
-var currentAuthor = "";
+var latitude = 0;
+var longitude = 0;
+var APPID = "374a1697ad3f46a4825fd477b7729539";
 
-function getQuote(){
-   $.ajax({
-         url: "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
-         success: function(data){
-           var post = data.shift();
-           $("#author").text(post.title);
-           $("#text").html(post.content);
-           currentQuote = $("#text").text();
-           currentAuthor = $("#author").text();
-           $("#tweet-quote").attr("href", 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + currentQuote + '"' + currentAuthor));
-         },
-         cache: false
-       });
-   
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+  } else {
+    document.getElementById("currLoc").innerHTML = "Geolocation disabled";
   }
-$(document).ready(function(){
-  // new quote button
-  getQuote();
-  $("#new-quote").on("click", getQuote);
-  $("#tweet-quote").on("click", function(){
-    openURL('https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + currentQuote + '"' + currentAuthor));
-  });
-});
+}
+//Function to execute on successful geolocation
+function geoSuccess(position){
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
 
+  document.getElementById("currLoc").innerHTML = "<p>Latitude: " + latitude + "° <br>Longitude: " + longitude + "°</p>";
+}
+
+function geoError(){
+  document.getElementById("currLoc").innerHTML = "Unable to retrieve your location";
+}
+
+function getWeather(){
+  $.ajax({
+      url: "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=" + APPID,
+      success: function(weatherData){
+        var post = weatherData.shift();
+        $("#weather").text(post.coord);
+      }
+  });
+}
+
+$(document).ready(function() {
+  $("#getloc").on("click", getLocation);
+});
