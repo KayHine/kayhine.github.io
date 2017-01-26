@@ -1,5 +1,6 @@
 var latitude = 0;
 var longitude = 0;
+var APPID = "374a1697ad3f46a4825fd477b7729539";
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -22,7 +23,7 @@ function geoError(){
 
 function getWeather(){
   $.ajax({
-      url: "api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude,
+      url: "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=" + APPID;
       success: function(weatherData){
         var post = weatherData.shift();
         $("#weather").text(post.coord);
