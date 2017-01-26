@@ -1,3 +1,6 @@
+var latitude = 0;
+var longitude = 0;
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
@@ -7,8 +10,8 @@ function getLocation() {
 }
 //Function to execute on successful geolocation
 function geoSuccess(position){
-  var latitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
 
   document.getElementById("currLoc").innerHTML = "<p>Latitude: " + latitude + "° <br>Longitude: " + longitude + "°</p>";
 }
@@ -17,14 +20,16 @@ function geoError(){
   document.getElementById("currLoc").innerHTML = "Unable to retrieve your location";
 }
 
-/*function getWeather(){
-  getLocation();
+function getWeather(){
   $.ajax({
-
+      url: "api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude,
+      success: function(weatherData){
+        var post = weatherData.shift();
+        $("#weather").text(post.coord);
+      }
   });
-}*/
+}
 
 $(document).ready(function() {
   $("#getloc").on("click", getLocation);
 });
-
