@@ -1,9 +1,8 @@
 function getLocation() {
-  var loc = document.getElementById("currLoc");
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
   } else {
-    loc.innerHTML = "Geolocation disabled";
+    document.getElementById("currLoc").innerHTML = "Geolocation disabled";
   }
 }
 //Function to execute on successful geolocation
@@ -11,11 +10,11 @@ function geoSuccess(position){
   var latitude = position.coords.latitude;
   var longitude = position.coords.longitude;
 
-  loc.innerHTML = "<p>Latitude: " + latitude + "° <br>Longitude: " + longitude + "°</p>";
+  document.getElementById("currLoc").innerHTML = "<p>Latitude: " + latitude + "° <br>Longitude: " + longitude + "°</p>";
 }
 
 function geoError(){
-  loc.innerHTML = "Unable to retrieve your location";
+  document.getElementById("currLoc").innerHTML = "Unable to retrieve your location";
 }
 
 /*function getWeather(){
@@ -28,3 +27,4 @@ function geoError(){
 $(document).ready(function() {
   $("#getloc").on("click", getLocation);
 });
+
